@@ -91,7 +91,7 @@
                             <input type="text" name="nome" class="form-control" placeholder="Nome" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="telefone" class="form-control" placeholder="Telefone" required>
+                            <input type="text" name="telefone" class="form-control" placeholder="Telefone" id="telefone" required>
                         </div>
                         <div class="form-group">
                             <input type="email" name="email" class="form-control" placeholder="Email" required>
