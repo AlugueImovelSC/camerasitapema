@@ -34,7 +34,7 @@
     <meta property="twitter:image" content="{{ $seo->image }}"/>
     <meta property="twitter:url" content="{{ $seo->url }}"/>
 
-    <link rel="icon" href="/assets/img/favicon.png">
+    <link rel="shortcut icon" href="/assets/img/favicon.png">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <link rel="stylesheet" href="/assets/icomoon/icomoon.css">
