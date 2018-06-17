@@ -27,7 +27,7 @@
                 </header>
                 <div class="col-md-10 col-sm-12 ml-auto mr-auto">
                     <div class="embed-responsive embed-responsive-16by9">
-                        <iframe src="https://www.youtube.com/embed/zw2PmQ-6Fd8" frameborder="0" allowfullscreen class="embed-responsive-item"></iframe>
+                        <iframe src="https://www.youtube.com/embed/{{ setting()->iframe_video }}" frameborder="0" allowfullscreen class="embed-responsive-item"></iframe>
                     </div>
                 </div>
             </div>
@@ -63,7 +63,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -76,18 +75,29 @@
                 </header>
                 <div class="col-md-6 col-sm-12 experiment-contact">
                     <p>Preencha aqui os seus dados e acompanhe uma demonstração em tempo real de uma das câmeras da <b>Câmeras Itapema</b>.</p>
-                    <form action="" method="post" enctype="multipart/form-data">
+
+                    @if($errors->count() > 0)
+                        <div class="alert alert-warning alert-dismissible">
+                            {{ $errors->first() }}
+                            <button class="close" data-dismiss="alert">
+                                <span>&times;</span>
+                            </button>
+                        </div>
+                    @endif
+
+                    <form action="/contato" method="post" enctype="multipart/form-data">
+                        @csrf
                         <div class="form-group">
-                            <input type="text" name="" class="form-control" placeholder="Nome" required>
+                            <input type="text" name="nome" class="form-control" placeholder="Nome" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="" class="form-control" placeholder="Telefone" required>
+                            <input type="text" name="telefone" class="form-control" placeholder="Telefone" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" name="" class="form-control" placeholder="Email" required>
+                            <input type="email" name="email" class="form-control" placeholder="Email" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="" class="form-control" placeholder="Bairro" required>
+                            <input type="text" name="bairro" class="form-control" placeholder="Bairro" required>
                         </div>
                         <div class="form-group">
                             <button class="btn btn-lg btn-outline-primary">
@@ -106,9 +116,12 @@
     <div class="container-fluid network">
         <div class="container">
             <p>Redes Sociais</p>
-            <a href="" class="icon-social icon-facebook"></a>
-            <a href="" class="icon-social icon-twitter"></a>
-            <a href="" class="icon-social icon-whatsapp"></a>
+            @if(setting()->page_facebook)
+                <a target="_blank" href="{{ setting()->page_facebook }}" class="icon-social icon-facebook"></a>
+            @endif
+            @if(setting()->contact_whatsapp)
+                <a target="_blank" href="https://api.whatsapp.com/send?phone=55{{ str_replace(['(', ')', ' ', '-'], null, setting()->contact_whatsapp) }}" class="icon-social icon-whatsapp"></a>
+            @endif
         </div>
     </div>
 

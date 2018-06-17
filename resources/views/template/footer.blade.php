@@ -20,7 +20,7 @@
 </footer>
 
 <div class="container mt-3 mb-3 text-center copyright">
-    <p>Desenvolvido por <a href="https://www.agenciaitapema.com.br">Agência Itapema</a></p>
+    <p>Desenvolvido por <a target="_blank" href="https://www.agenciaitapema.com.br">Agência Itapema</a></p>
 </div>
 
 <a href="https://api.whatsapp.com/send?phone=55{{ str_replace(['(', ')', ' ', '-'], null, setting()->contact_whatsapp) }}" class="icon-whatsapp-bottom round" target="_blank">
